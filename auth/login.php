@@ -61,7 +61,7 @@
                                 if($passwordMatches) {
 
                                     #regenerate session id 
-                                    // session_regenerate_id(true);
+                                    session_regenerate_id(true);
                                     #store admin data in sessions
                                    
                                     setSession('admin_id'    ,$admin['admin_id']   );  
