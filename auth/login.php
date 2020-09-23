@@ -59,11 +59,11 @@
                                 $passwordMatches = password_verify($password , $admin['admin_password']);
 
                                 if($passwordMatches) {
-                                    #store admin data in sessions
-                                    // $_SESSION['admin_email'] = $admin['admin_email'];
-                                    // $_SESSION['admin_name'] = $admin['admin_name'];
-                                    // $_SESSION['admin_type'] = $admin['admin_type'];
 
+                                    #regenerate session id 
+                                    // session_regenerate_id(true);
+                                    #store admin data in sessions
+                                   
                                     setSession('admin_id'    ,$admin['admin_id']   );  
                                     setSession('admin_email' ,$admin['admin_email']);  
                                     setSession('admin_name'  ,$admin['admin_name'] );  
