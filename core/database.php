@@ -131,3 +131,18 @@ function getCountWhere(string $table , string $whereCase)
   return $row['rowsCount'];
   mysqli_close($conn);
 }
+
+
+function getJoiningCities($city_id)
+{
+  global $conn;
+  $sql = "SELECT cities.city_name
+          FROM cities JOIN orders
+          on cities.city_id = orders.order_city_id
+          WHERE cities.city_id = $city_id";
+
+  $result = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_assoc($result);
+  return $row;
+  mysqli_close($conn);
+}

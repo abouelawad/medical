@@ -29,10 +29,10 @@
                             <td> <?= typeCount(); ?> </td>
                             <td><?php echo ucfirst($row['service_name']); ?></td>
                             <td>
-                                <a href="<?php echo AURL . "service/edit.php/?service_id=" . $row['service_id']; ?>" class="btn btn-info">Edit</a>
+                                <a href="<?php echo AURL . "service/edit/" . $row['service_id']; ?>" class="btn btn-info">Edit</a>
                             </td>
                             <td>
-                                <a href="<?php echo AURL . "service/delete.php/?service_id=" . $row['service_id']; ?>" class="btn btn-danger">Delete</a>
+                                <a href="<?php echo AURL . "service/delete/" . $row['service_id']; ?>" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

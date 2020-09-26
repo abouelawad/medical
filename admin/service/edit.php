@@ -12,6 +12,7 @@
         if (isset($_GET['service_id']) && is_numeric($_GET['service_id'])) {
             $service_id = $_GET['service_id'];
             $row = getOne('services', "service_id = '$service_id'");
+        
 
             if (empty($row))
                 abort();
@@ -23,7 +24,7 @@
             foreach ($_POST as $key => $value) {
                 $$key = prepareInput($value);
             }
-            
+
 
             if (!isRequired($name)) {
                 $errors['name'] = "required";
@@ -41,7 +42,7 @@
                     $row = getOne('services', "service_id = $service_id");
                 }
             }
-        }; 
+        };
         ?>
 
 
@@ -58,8 +59,10 @@
                                     echo "<span class='text-success'>$sucsess</span>";
                                 }; ?>
                             </label>
-                            <input type="hidden" name="id" value="">
-                            <input type="text" name="name" class="form-control" id="name">
+                            <input type="hidden" name="id" >
+                            <input type="text" name="name" class="form-control" id="name" value="<?php
+                                                                                                    echo $row['service_name'];
+                                                                                                    ?>">
                         </div>
 
                         <button type="submit" name="submit" class="btn btn-primary btn-block">Save</button>

@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 
@@ -10,7 +9,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="<?= URL; ?>assets/css/bootstrap.css">
 
-  <title><?= SITE_TITLE; ?></title>     
+  <title><?= SITE_TITLE; ?></title>
 </head>
 
 <body>
@@ -31,8 +30,8 @@
             Cities
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Add New</a>
-            <a class="dropdown-item" href="#">View All</a>
+            <a class="dropdown-item" href="<?= AURL . "city/add"; ?>">Add New</a>
+            <a class="dropdown-item" href="<?= AURL . "city/view"; ?>">View All</a>
           </div>
         </li>
 
@@ -41,8 +40,8 @@
             Services
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Add New</a>
-            <a class="dropdown-item" href="#">View All</a>
+            <a class="dropdown-item" href="<?= AURL . "service/add"; ?>">Add New</a>
+            <a class="dropdown-item" href="<?= AURL . "service/view"; ?>">View All</a>
           </div>
         </li>
 
@@ -51,12 +50,12 @@
             Managers
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Add New</a>
-            <a class="dropdown-item" href="#">View All</a>
+            <a class="dropdown-item" href="<?= AURL . "manager/add"; ?>">Add New</a>
+            <a class="dropdown-item" href="<?= AURL . "manager/view"; ?>">View All</a>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Orders</a>
+          <a class="nav-link" href="<?= AURL . "order/view"; ?>">Orders</a>
         </li>
 
 

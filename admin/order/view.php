@@ -25,7 +25,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $rows = getAll('orders'); ?>
+                    <?php $rows = getAll('orders');
+                    // print_r($rows);?>
                     <?php foreach ($rows as $row) : ?>
                         <tr>
                             <td> <?= typeCount(); ?> </td>
@@ -34,10 +35,10 @@
                             <td scope="col"><?php echo $row['order_phone']; ?></td>
                             <td scope="col">
                                 <?php
-                                    //STUPID CODE TO HANDE FOREIGN KEY 
-                                    $order_city_id = $row['order_city_id'];
-                                    $rowCity = getOne('cities', "city_id = $order_city_id ");
-                                    echo $rowCity['city_name'];
+                        //STUPID CODE TO HANDE FOREIGN KEY 
+                        $order_city_id = $row['order_city_id'];
+                        $rowcity = getJoiningCities($order_city_id);
+                        echo $rowcity['city_name'];
                                 ?>
                             </td>
                             <td scope="col">
@@ -46,12 +47,14 @@
                                 $order_service_id = $row['order_service_id'];
                                 $rowService = getOne('services', "service_id = $order_service_id ");
                                 echo $rowService['service_name'];
+
+
                                 ?>
                             </td>
                             <td scope="col"><?php echo $row['order_created_at']; ;?></b></td>
 
                             <td>
-                                <a href="<?php echo AURL ."" ;?>" class="btn btn-danger delete-record">Delete</a>
+                                <a href="<?php echo AURL . "order/delete/" . $row['order_id'];?>" class="btn btn-danger delete-record">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
