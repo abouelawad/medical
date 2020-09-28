@@ -15,7 +15,7 @@ define('ADMIN', ROOT ."admin/" );
 define('ASSETS',ROOT."assets/" );
 define('AUTH',ROOT."auth/");
 define('CORE',ROOT."core/");
-define('INC',ROOT."inc/");
+define('INC',ROOT. "admin/inc/");
 
 define("URL" , 'http://localhost/medical/');
 define("AURL" , 'http://localhost/medical/admin/');

@@ -15,22 +15,24 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Active</th>
                         <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $rows = getAll('cities'); ?>
-                    <?php foreach ($rows as $row) : ?>
+                    <?php $cities = getAll('cities'); ?>
+                    <?php foreach ($cities as $city) : ?>
                         <tr>
                             <td> <?= typeCount(); ?> </td>
-                            <td><?php echo ucfirst($row['city_name']); ?></td>
+                            <td><?php echo ucfirst($city['city_name']); ?></td>
                             <td>
-                                <a href="<?php echo AURL . "city/edit/" . $row['city_id']; ?>" class="btn btn-info">Edit</a>
+                                <input type="checkbox" class="is-active" <?php if ($city['city_is_active']) echo "checked"; ?> data-id="<?= $city['city_id'] ;?>"></td>
+                            <td>
+                                <a href="<?php echo AURL . "city/edit/" . $city['city_id']; ?>" class="btn btn-info">Edit</a>
                             </td>
                             <td>
-                                <a href="<?php echo AURL . "city/delete/" . $row['city_id']; ?>" 
-                                class="btn btn-danger">Delete</a>
+                                <a href="<?php echo AURL . "city/delete/" . $city['city_id']; ?>" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -44,4 +46,19 @@
     </div>
 </div>
 <!-- call footer.php -->
-<?php include ADMIN . "inc/footer.php"; ?>
+
+<?php require_once ADMIN . "inc/scripts.php"; ?>
+
+<script>
+    $('.is-active').change(function () {
+        let state = $(this).prop("checked");
+        let id  = $(this).attr("data-id");
+        console.log(state,id);
+    })
+</script>
+
+
+
+</body>
+
+</html>
