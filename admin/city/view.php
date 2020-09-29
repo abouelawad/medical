@@ -27,7 +27,7 @@
                             <td> <?= typeCount(); ?> </td>
                             <td><?php echo ucfirst($city['city_name']); ?></td>
                             <td>
-                                <input type="checkbox" class="is-active" <?php if ($city['city_is_active']) echo "checked"; ?> data-id="<?= $city['city_id'] ;?>"></td>
+                                <input type="checkbox" class="is-active" <?php if ($city['city_is_active']) echo "checked"; ?> data-id="<?= $city['city_id']; ?>"></td>
                             <td>
                                 <a href="<?php echo AURL . "city/edit/" . $city['city_id']; ?>" class="btn btn-info">Edit</a>
                             </td>
@@ -50,10 +50,31 @@
 <?php require_once ADMIN . "inc/scripts.php"; ?>
 
 <script>
-    $('.is-active').change(function () {
+    $('.is-active').change(function() {
         let state = $(this).prop("checked");
-        let id  = $(this).attr("data-id");
-        console.log(state,id);
+        let id = $(this).attr("data-id");
+        if (state) {
+            axios.get("<?php echo AURL . 'city/ajax/activate.php?city_id=' ?>" + id)
+                .then(function(response) {
+                    console.log(response.data);
+                    // console.log(response.status);
+                    // console.log(response.statusText);
+                    // console.log(response.headers);
+                    // console.log(response.config);
+                });
+
+        } else {
+
+            axios.get("<?php echo AURL . 'city/ajax/deactivate.php?city_id=' ?>" + id)
+                .then(function(response) {
+                    console.log(response.data);
+                    // console.log(response.status);
+                    // console.log(response.statusText);
+                    // console.log(response.headers);
+                    // console.log(response.config);
+                });
+        }
+        // console.log(state, id);
     })
 </script>
 
