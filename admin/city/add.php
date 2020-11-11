@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
     //    $isInserted =  insert('cities', " (city_name) VALUE ('$name')");
        $isInserted =  insert('cities', $data );
        if ($isInserted) {
-           $sucsess = 'new city is add successfully';
+           $success = 'new city is add successfully';
        }
     }
 }
@@ -43,8 +43,8 @@ if (isset($_POST['submit'])) {
                 <h3 class="text-center">Add New City</h3>
                 <div>
             <?php 
-                if (!empty($sucsess)) {
-                     echo "<div class='alert alert-success'>$sucsess</div>";
+                if (!empty($success)) {
+                     echo "<div class='alert alert-success'>$success</div>";
                 }; 
             ?>
                     <form class="border p-5 my-3 " method="POST" action="">

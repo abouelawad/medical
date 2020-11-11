@@ -17,4 +17,4 @@ RewriteRule ^admin/service/edit/(\d+)$ admin/service/edit.php?service_id=$1
 RewriteRule ^admin/service/delete/(\d+)$ admin/service/delete.php?service_id=$1
 
 
-RewriteRule ^auth/login$ auth/login.php
+RewriteRule ^auth/login$ auth/login.php 
